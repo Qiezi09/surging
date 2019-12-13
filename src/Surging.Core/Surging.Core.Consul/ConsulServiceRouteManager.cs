@@ -102,6 +102,7 @@ namespace Surging.Core.Consul
 
                     if (serviceRoute != null)
                     {
+                        //这两个是否重复了
                         var addresses = serviceRoute.Address.Concat(
                           route.Address.Except(serviceRoute.Address)).ToList();
 
@@ -139,6 +140,11 @@ namespace Surging.Core.Consul
             await base.SetRoutesAsync(routes);
         }
 
+        /// <summary>
+        /// 把当前服务所有的服务路由注册到注册中心
+        /// </summary>
+        /// <param name="routes"></param>
+        /// <returns></returns>
         protected override async Task SetRoutesAsync(IEnumerable<ServiceRouteDescriptor> routes)
         {
             var clients = await _consulClientProvider.GetClients();
@@ -155,6 +161,12 @@ namespace Surging.Core.Consul
 
         #region 私有方法
 
+        /// <summary>
+        /// 删除注册中心不存在的服务路由（旧的服务是否有必要删掉？）
+        /// </summary>
+        /// <param name="routes"></param>
+        /// <param name="hostAddr"></param>
+        /// <returns></returns>
         private async Task RemoveExceptRoutesAsync(IEnumerable<ServiceRoute> routes, AddressModel hostAddr)
         {
             routes = routes.ToArray();

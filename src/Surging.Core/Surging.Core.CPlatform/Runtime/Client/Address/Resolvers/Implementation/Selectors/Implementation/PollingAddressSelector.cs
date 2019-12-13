@@ -47,7 +47,7 @@ namespace Surging.Core.CPlatform.Runtime.Client.Address.Resolvers.Implementation
             ValueTask<bool> vt;
             do
             {
-
+                //轮询，每获取一个地址，_index加1，每个服务被请求的机会均等
                 addressModel = addressEntry.GetAddress();
                 if (len <= index)
                 {
@@ -109,6 +109,10 @@ namespace Surging.Core.CPlatform.Runtime.Client.Address.Resolvers.Implementation
 
             #region Public Method
 
+            /// <summary>
+            /// 轮询，每获取一个地址，_index加1，每个服务被请求的机会均等
+            /// </summary>
+            /// <returns></returns>
             public AddressModel GetAddress()
             {
                 while (true)

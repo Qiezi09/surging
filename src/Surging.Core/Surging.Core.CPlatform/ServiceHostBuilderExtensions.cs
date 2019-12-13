@@ -97,6 +97,11 @@ namespace Surging.Core.CPlatform
             }
         }
 
+        /// <summary>
+        /// 根据当前服务服务Id获取注册中心相同服务、将当前服务的地址添加到服务路由，删除注册中心当前服务不存在的路由地址
+        /// </summary>
+        /// <param name="mapper"></param>
+        /// <returns></returns>
         public static async Task ConfigureRoute(IContainer mapper)
         {
             if (AppConfig.ServerOptions.Protocol == CommunicationProtocol.Tcp ||
