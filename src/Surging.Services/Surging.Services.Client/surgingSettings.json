@@ -55,5 +55,19 @@
     "LogLevel": {
       "Default": "${LogLevel}|Debug"
     }
+  },
+  "Swagger": {
+    "Version": "${SwaggerVersion}|V1", // "127.0.0.1:8500",
+    "Title": "${SwaggerTitle}|Surging Demo",
+    "Description": "${SwaggerDes}|surging demo",
+    "Contact": {
+      "Name": "API Support",
+      "Url": "https://github.com/dotnetcore/surging",
+      "Email": "fanliang1@hotmail.com"
+    },
+    "License": {
+      "Name": "MIT",
+      "Url": "https://github.com/dotnetcore/surging/blob/master/LICENSE"
+    }
   }
 }

@@ -12,3 +12,6 @@
 	2、失败回调机制
 四、服务熔断
 五、AOP
+六、Roslyn、DynamicMethod（FastInvoke）
+七、ConfigurationSource、ConfigurationBuilder、IConfigurationProvider
+	
